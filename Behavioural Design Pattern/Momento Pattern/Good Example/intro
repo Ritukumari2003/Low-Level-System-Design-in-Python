@@ -1,0 +1,85 @@
+# MEMENTO DESIGN PATTERN (Simple Explanation)
+
+# The Memento Pattern is used to save and restore an object's state
+# without exposing its internal details.
+
+# ---------------------------------------------------------
+# It has 3 main components:
+# ---------------------------------------------------------
+
+# 1. ORIGINATOR
+# This is the main object whose state we want to save.
+# It can:
+#   - Create a snapshot of its current state (called a memento)
+#   - Restore its state from a memento
+
+# Simple idea:
+# "This object does the work and decides what to save"
+
+# Example:
+# A TextEditor that contains some text
+
+
+# ---------------------------------------------------------
+
+# 2. MEMENTO
+# This stores the state of the Originator.
+# It acts like a snapshot or backup of the object.
+
+# Important:
+# - It should not be modified directly from outside
+# - It only stores data, no logic
+
+# Simple idea:
+# "This is the saved memory (snapshot)"
+
+# Example:
+# A class that stores the text of the editor at a certain time
+
+
+# ---------------------------------------------------------
+
+# 3. CARETAKER
+# This manages and stores all the mementos.
+# It does NOT modify the data inside mementos.
+
+# It can:
+#   - Save mementos
+#   - Return mementos when needed (for undo/redo)
+
+# Simple idea:
+# "This is the manager that keeps history"
+
+# Example:
+# A History class that stores previous states of the editor
+
+
+# ---------------------------------------------------------
+# HOW IT WORKS (FLOW)
+# ---------------------------------------------------------
+
+# Step 1: User performs some action (like typing text)
+# Step 2: Originator creates a memento (snapshot of current state)
+# Step 3: Caretaker stores this memento
+
+# When undo is needed:
+# Step 4: Caretaker gives the last saved memento
+# Step 5: Originator restores its state using that memento
+
+
+# ---------------------------------------------------------
+# REAL-LIFE EXAMPLE
+# ---------------------------------------------------------
+
+# Think of Ctrl + Z (Undo) in a text editor:
+# - Each time you type, a snapshot is saved
+# - When you undo, the previous snapshot is restored
+
+
+# ---------------------------------------------------------
+# KEY BENEFITS
+# ---------------------------------------------------------
+
+# - Helps implement undo/redo functionality
+# - Keeps internal data safe (encapsulation)
+# - Separates responsibilities (clean design)
