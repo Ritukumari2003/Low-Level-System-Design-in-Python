@@ -1,0 +1,11 @@
+from command_interface import Order
+from chef import Chef
+
+class PizzaOrder(Order):
+    def __init__(self, chef: Chef):
+        self.__chef = chef
+    
+    def execute_order(self):
+        print("Pizza Order")
+        self.__chef.cook_pizza()
+        
